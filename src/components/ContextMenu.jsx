@@ -12,14 +12,12 @@ const ContextMenu = (props) => {
     setIsOpen(false)
   }
   useEffect(() => {
-    const parent = props.parent.current
-    const showMenu = (e) => {
-      e.preventDefault()
-      if (!isOpen) {
-        setIsOpen(true)
-      }
-    }
+    props.isRightClicked && setIsOpen(true)
+  }, [props.isRightClicked])
+
+  useEffect(() => {
     const hideMenu = (e) => {
+      const parent = props.parent.current
       if (parent.contains(e.target)) {
         e.preventDefault()
       }
@@ -27,14 +25,10 @@ const ContextMenu = (props) => {
         setIsOpen(false)
       }
     }
-    parent.addEventListener('contextmenu', showMenu)
     window.addEventListener('click', hideMenu)
-    window.addEventListener('contextmenu', hideMenu)
 
     return () => {
-      parent.removeEventListener('contextmenu', (e) => showMenu)
       window.removeEventListener('click', hideMenu)
-      window.removeEventListener('contextmenu', hideMenu)
     }
   })
   return isOpen ? (
