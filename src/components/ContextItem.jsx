@@ -10,7 +10,6 @@ const ContextItem = ({ children }, style) => {
       onContextMenu={(e) => {
         e.preventDefault()
         setIsRightClicked(e)
-        console.log(isRightClicked)
       }}
     >
       <p>{children}</p>

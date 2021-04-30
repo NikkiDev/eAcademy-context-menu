@@ -8,7 +8,7 @@ const Context = () => {
       <ContextItem>Library</ContextItem>
       <ContextItem>Files</ContextItem>
       <ContextItem>Gallery</ContextItem>
-      <ContextItem>Gallery</ContextItem>
+      <ContextItem>Contact</ContextItem>
     </ul>
   )
 }
